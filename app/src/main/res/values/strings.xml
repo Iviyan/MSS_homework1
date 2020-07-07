@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">homework1</string>
+    <string name="app_name">Homework 1</string>
+    <string name="title">О себе</string>
 </resources>
