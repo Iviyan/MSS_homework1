@@ -21,6 +21,7 @@ class Adapter(private val data: List<Any>) :
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             0 -> UserHolder(inflater.inflate(R.layout.user_info, parent, false))
+            1 -> ProjectHolder(inflater.inflate(R.layout.project_info, parent, false))
             else -> throw Exception("Wrong viewType")
         }
     }
@@ -28,6 +29,7 @@ class Adapter(private val data: List<Any>) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (getItemViewType(position)) {
             0 -> (holder as UserHolder).bind(data[position] as User)
+            1 -> (holder as ProjectHolder).bind(data[position] as Project)
         }
     }
 

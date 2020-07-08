@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.project_info.view.*
 import kotlinx.android.synthetic.main.user_info.view.*
 
 class UserHolder(private val view: View) : RecyclerView.ViewHolder(view) {
@@ -21,5 +22,17 @@ class UserHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         }
 
         this.userInfo = userInfo
+    }
+}
+
+class ProjectHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    lateinit var projectInfo: Project
+
+    fun bind(projectInfo: Project) {
+        view.apply {
+            tv_project_info.text = projectInfo.info
+        }
+
+        this.projectInfo = projectInfo
     }
 }

@@ -13,7 +13,8 @@ class MainActivity : AppCompatActivity() {
         main.layoutManager = LinearLayoutManager(this)
         main.adapter = Adapter(
             listOf(
-                User("Воркунов Иван", "1 курс", "https://github.com/Zagadochnik37")
+                User("Воркунов Иван", "1 курс", "https://github.com/Zagadochnik37"),
+                Project("Это, вероятно, должен быть важный проект, хотя, кто его знает...")
             )
         )
 
