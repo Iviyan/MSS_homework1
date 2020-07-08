@@ -10,11 +10,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        main.addItemDecoration(ItemDecoration(14))
         main.layoutManager = LinearLayoutManager(this)
         main.adapter = Adapter(
             listOf(
-                User("Воркунов Иван", "1 курс", "https://github.com/Zagadochnik37"),
-                Project("Это, вероятно, должен быть важный проект, хотя, кто его знает...")
+                User("Воркунов Иван", "10 класс", "https://github.com/Zagadochnik37"),
+                Project("Это, вероятно, должен быть важный проект, хотя, кто его знает..."),
+                SkillsHeader(),
+                Skill("Kotlin", "4 дня"),
+                Skill("C#", "2 года"),
+                Skill("Javascript", "2 года"),
+                Skill("SQL", "<1 месяца"),
+                Skill("C++", "3 месяца")
+
             )
         )
 
