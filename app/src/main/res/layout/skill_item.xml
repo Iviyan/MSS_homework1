@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="8dp"
     android:background="@drawable/rounded_border"
-    android:elevation="3dp"
+    android:padding="8dp"
+    android:elevation="2dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/projectInfoHeader"
+        android:id="@+id/skillName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Идея проекта"
-        android:textSize="@dimen/header2"
+        android:text="Навык"
+        android:textSize="@dimen/skill_header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_project_info"
-        android:layout_width="0dp"
+        android:id="@+id/skillExperience"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="..."
+        android:text="1 год"
+        android:textSize="@dimen/skill_experience"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/projectInfoHeader" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

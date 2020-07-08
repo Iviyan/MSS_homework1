@@ -2,4 +2,7 @@
 <resources>
     <dimen name="captionSize">26sp</dimen>
     <dimen name="header2">20sp</dimen>
+    <dimen name="header3">22sp</dimen>
+    <dimen name="skill_header">20sp</dimen>
+    <dimen name="skill_experience">18sp</dimen>
 </resources>
