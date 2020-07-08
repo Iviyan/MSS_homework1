@@ -15,8 +15,6 @@ class Adapter(private val data: List<Any>) :
             is Skill -> 3
             else -> throw Exception("Wrong type")
         }
-        //return super.getItemViewType(position)
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -37,5 +35,5 @@ class Adapter(private val data: List<Any>) :
         }
     }
 
-    override fun getItemCount() = data.size
+    override fun getItemCount(): Int = data.size
 }
