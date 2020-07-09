@@ -1,10 +1,13 @@
 package com.mss.homework1
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.skills_header.view.*
 
-class Adapter(private val data: List<Any>) :
+@Suppress("ClassName")
+class Adapter_main(private val data: List<Any>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int =
@@ -31,6 +34,14 @@ class Adapter(private val data: List<Any>) :
         when (getItemViewType(position)) {
             0 -> (holder as UserHolder).bind(data[position] as User)
             1 -> (holder as ProjectHolder).bind(data[position] as Project)
+            2 -> (holder as SkillsHeaderHolder).view.apply {
+                // if (...) filter_button.setImageResource(R.drawable.ic_filter_alt_black_checked_24dp)
+
+                filter_button.setOnClickListener {
+                    val intent = Intent(it.context, FilterActivity::class.java)
+                    (it.context as MainActivity).startActivityForResult(intent, 0)
+                }
+            }
             3 -> (holder as SkillHolder).bind(data[position] as Skill)
         }
     }

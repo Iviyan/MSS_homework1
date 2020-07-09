@@ -12,16 +12,16 @@ class MainActivity : AppCompatActivity() {
 
         main.addItemDecoration(ItemDecoration(14))
         main.layoutManager = LinearLayoutManager(this)
-        main.adapter = Adapter(
+        main.adapter = Adapter_main(
             listOf(
                 User("Воркунов Иван", "10 класс", "https://github.com/Zagadochnik37"),
                 Project("Это, вероятно, должен быть важный проект, хотя, кто его знает..."),
                 SkillsHeader(),
-                Skill("Kotlin", "4 дня"),
-                Skill("C#", "2 года"),
-                Skill("Javascript", "2 года"),
-                Skill("SQL", "<1 месяца"),
-                Skill("C++", "3 месяца")
+                Skill("Kotlin", "7d"),
+                Skill("C#", "2y"),
+                Skill("Javascript", "2y"),
+                Skill("SQL", "<1m"),
+                Skill("C++", "3m")
 
             )
         )

@@ -38,7 +38,7 @@ class ProjectHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     }
 }
 
-class SkillsHeaderHolder(view: View) : RecyclerView.ViewHolder(view)
+class SkillsHeaderHolder(val view: View) : RecyclerView.ViewHolder(view)
 
 class SkillHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     lateinit var skillInfo: Skill
@@ -46,7 +46,7 @@ class SkillHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(skillInfo: Skill) {
         view.apply {
             skillName.text = skillInfo.name
-            skillExperience.text = skillInfo.experience
+            skillExperience.text = ExperienceToRussian(skillInfo.experience)
         }
 
         this.skillInfo = skillInfo
