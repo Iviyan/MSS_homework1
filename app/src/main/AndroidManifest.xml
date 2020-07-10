@@ -19,6 +19,4 @@
         <activity android:name=".FilterActivity" />
     </application>
 
-    <permission android:name="persist.vendor.sys.activitylog" />
-
 </manifest>

@@ -46,7 +46,7 @@ class SkillHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(skillInfo: Skill) {
         view.apply {
             skillName.text = skillInfo.name
-            skillExperience.text = ExperienceToRussian(skillInfo.experience)
+            skillExperience.text = experienceToRussian(skillInfo.experience)
         }
 
         this.skillInfo = skillInfo

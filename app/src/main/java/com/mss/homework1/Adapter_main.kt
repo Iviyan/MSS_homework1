@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.skills_header.view.*
 
 @Suppress("ClassName")
-class Adapter_main(private val data: List<Any>) :
+class Adapter_main(private val data: List<Any>, val filters: List<String>, val filters_on: List<String>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int =
@@ -35,10 +35,12 @@ class Adapter_main(private val data: List<Any>) :
             0 -> (holder as UserHolder).bind(data[position] as User)
             1 -> (holder as ProjectHolder).bind(data[position] as Project)
             2 -> (holder as SkillsHeaderHolder).view.apply {
-                // if (...) filter_button.setImageResource(R.drawable.ic_filter_alt_black_checked_24dp)
+                if (filters_on.count() < filters.count()) filter_button.setImageResource(R.drawable.ic_filter_checked)
 
                 filter_button.setOnClickListener {
                     val intent = Intent(it.context, FilterActivity::class.java)
+                    intent.putExtra("filters", filters.toTypedArray())
+                    intent.putExtra("filters_on", filters_on.toTypedArray())
                     (it.context as MainActivity).startActivityForResult(intent, 0)
                 }
             }

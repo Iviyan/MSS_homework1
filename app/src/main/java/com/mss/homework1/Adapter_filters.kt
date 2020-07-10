@@ -6,7 +6,7 @@ import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 
 @Suppress("ClassName")
-class Adapter_filters(private val data: List<FilterItem>) :
+class Adapter_filters(val data: List<FilterItem>, val onCheck: (position: Int) -> Unit) :
     RecyclerView.Adapter<CheckboxHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheckboxHolder {
@@ -15,21 +15,19 @@ class Adapter_filters(private val data: List<FilterItem>) :
     }
 
     override fun onBindViewHolder(holder: CheckboxHolder, position: Int) {
-        val item = data[position]
-        holder.bind(item)
+        val filter = data[position]
+        holder.apply {
+            view.text = filter.text
+            view.isChecked = filter.value
+
+            view.setOnCheckedChangeListener { _, v ->
+                data[position].value = v
+                onCheck(position)
+            }
+        }
     }
 
     override fun getItemCount(): Int = data.size
 }
 
-class CheckboxHolder(private val view: CheckBox) : RecyclerView.ViewHolder(view) {
-    lateinit var filter: FilterItem
-
-    fun bind(filter: FilterItem) {
-        view.apply {
-            this.text = filter.text
-        }
-
-        this.filter = filter
-    }
-}
+class CheckboxHolder(val view: CheckBox) : RecyclerView.ViewHolder(view)

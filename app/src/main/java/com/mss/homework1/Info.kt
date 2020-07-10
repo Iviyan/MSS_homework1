@@ -9,5 +9,5 @@ class FilterItem(
     var experience: String,
     var value: Boolean = true
 ) {
-    val text get() = ExperienceToRussian(experience)
+    val text get() = experienceToRussian(experience)
 }

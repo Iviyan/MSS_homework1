@@ -7,11 +7,32 @@ package com.mss.homework1
  * 'y' - год
  * Пример: 5d = 5 дней = 5
  *         7y6m20d = 7 лет 6 месяцев 20 дней  ~  StrToDays = 7*365+6*30+20 = 2755
+ * Если есть символ >/<, тогда к числу +/- 1 день.
+ * Пример: <1y = <1 года = 365-1 = 364
+ *         >1y = >1 года = 365+1 = 366
+ * @param condition - открючает +/- от символов >/<
  */
-fun ExperienceToDays(s: String): Int {
+fun experienceToDays(s_: String, condition: Boolean = false): Int {
     var days: Int = 0
 
-    val s = if (s[0] in arrayOf('>', '<')) s.substring(1) else s
+    /*var s: String = if (condition) // Это должно было работать, но оно почему-то не работает...
+        if (s[0] in arrayOf('>', '<')) s.substring(1) else s
+    else
+        when (s[0]) {
+            '<' -> { days = -1; s.substring(1); }
+            '>' -> { days = 1; s.substring(1); }
+            else -> s
+        }*/
+
+    var s: String = ""
+    if (condition)
+        s = if (s_[0] in arrayOf('>', '<')) s_.substring(1) else s_
+    else
+        when (s_[0]) {
+            '<' -> { s = s_.substring(1); days = -1 }
+            '>' -> { s = s_.substring(1); days = 1 }
+            else -> s = s_
+        }
 
     var temp: String = ""
     for (c in s) {
@@ -29,7 +50,7 @@ fun ExperienceToDays(s: String): Int {
     return days
 }
 
-fun ExperienceToRussian(s: String): String {
+fun experienceToRussian(s: String): String {
     var result: String = ""
 
     var s0: Char = ' '

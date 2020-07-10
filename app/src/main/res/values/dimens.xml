@@ -5,4 +5,5 @@
     <dimen name="header3">22sp</dimen>
     <dimen name="skill_header">20sp</dimen>
     <dimen name="skill_experience">18sp</dimen>
+    <dimen name="filter_item">16sp</dimen>
 </resources>
